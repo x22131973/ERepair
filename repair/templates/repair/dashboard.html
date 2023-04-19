@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Repair System</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	
+	{% load static %}
+	{% load staticfiles %}
+
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	
+	<link rel="icon" type="image/x-icon" href="{% static 'img/logos.jpg' %}">
+
+	<style>
+		a {
+			text-decoration: none;
+
+			display: flex;
+			justify-content: center;
+			text-align: center;
+			align-self: center;
+			align-items: flex-end;
+		}
+	</style>
+
+</head>
+
+<body>
+	<header style="font-family: Lucida Handwriting; color: yellow">
+		<h2>Myrel Hardware and Software Repair Shop</h2>
+	</header>
+		<section class="content" id='content' style="background: url({% static 'img/3.jpg' %}) no-repeat center; background-size: contain;">
+			<!-- <section class="card" onclick="getPage('enquiryForm');"> -->
+			<a href="/repair/enquiryForm/">
+				<section class="card" style="font-family: Lucida Handwriting; color: yellow;">
+					<h3>ENQUIRY</h3>
+				</section>
+			</a>
+			<a href="/repair/updateRequest/">
+				<section class="card" style="font-family: Lucida Handwriting; color: yellow;">
+					<h3>UPDATE</h3>
+				</section>
+			</a>
+			<a href="/repair/pendingRepairRequest/">
+				<section class="card" style="font-family: Lucida Handwriting; color: yellow;">
+					<h3>PENDING</h3>
+				</section>
+			</a>
+			<a href="/repair/checkStatusRequest/">
+				<section class="card" style="font-family: Lucida Handwriting; color: yellow;">
+					<h3>CHECK STATUS</h3>
+				</section>
+			</a>
+		</section>
+
+	<footer style="font-family: Lucida Handwriting; color: yellow">
+		<p>Repair Shop Management System 2021. All Rights Reserved</p>
+	</footer>
+
+	<script type="text/javascript">
+	   	function getPage(page){
+		    if (window.XMLHttpRequest) {
+		        var i = new XMLHttpRequest();
+		    } 
+		    else {
+		        var i = new ActiveXObject("Microsoft.XMLHTTP");
+		    }
+
+		    i.onreadystatechange = function(){
+		        if(this.readyState == 4 && this.status == 200){
+		            document.getElementById("content").innerHTML = this.responseText;
+		        }
+		    };
+
+		    i.open("GET","/repair/"+page, true);
+		    i.send();
+	   	}
+	</script>
+</body>
+
+</html>

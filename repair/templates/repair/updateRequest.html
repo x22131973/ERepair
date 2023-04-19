@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Repair System</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	
+	{% load static %}
+	{% load staticfiles %}
+
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+	<link rel="icon" type="image/x-icon" href="{% static 'img/logos.jpg' %}">
+</head>
+style="background: {% static 'img/bg.png' %}; opacity: 0px;"
+<body>
+	<header style="font-family: Lucida Handwriting; color: yellow">
+		<h2>Myrel Hardware and Software Repair Shop</h2>
+	</header>
+		<section class="content" id='content' style="background: url({% static 'img/3.jpg' %}) no-repeat center; background-size: contain;">
+			<section class="formContainer" style="align-self: center;">
+				<br>
+				<h3>Enter Receipt ID</h3><br><br>
+				<form action="/repair/updateForm/" method="POST">
+				    {% csrf_token %}
+				    <input type="hidden" name="requestType" value="receiptID">
+				    <input type="text" name="receiptID" placeholder="Enter Receipt ID" required><br><br>
+				    <input type="submit">
+				</form>
+				<br>
+			</section>
+
+			<section style="align-self: center; margin-top: 100px">
+				<br>
+				<h3>or</h3>
+				<br><br><br><br><br><br>
+			</section>
+
+			<section class="formContainer" style="align-self: center;">
+				<br>
+				<h3>Enter Device Serial Number</h3><br><br>
+				<form action="/repair/updateForm/" method="POST">
+				    {% csrf_token %}
+				    <input type="hidden" name="requestType" value="serialNo">
+				    <input type="text" name="serialNo" placeholder="Enter Device Serial Number" required><br><br>
+				    <input type="submit">
+				</form>
+				<br>
+			</section>
+	<footer style="font-family: Lucida Handwriting; color: yellow">
+		<p>Repair Shop Management System 2021. All Rights Reserved</p>
+	</footer>
+</body>
+
+</html>

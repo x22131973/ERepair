@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Repair System</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	
+	{% load static %}
+	{% load staticfiles %}
+
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+	<link rel="icon" type="image/x-icon" href="{% static 'img/logos.jpg' %}">
+</head>
+style="background: {% static 'img/bg.png' %}; opacity: 0px;"
+<body>
+	<header style="font-family: Lucida Handwriting; color: yellow">
+		<h2>Myrel Hardware and Software Repair Shop</h2>
+	</header>
+		<section class="content" id='content' style="background: url({% static 'img/3.jpg' %}) no-repeat center; background-size: contain;">
+			<section class="formContainer" style="margin-top: 100px;">
+				<form method="post" action="/repair/pendingRepairList/">
+					{% csrf_token %}
+					<br><br>
+					<h3 style="font-family: gotham rounded book;">Pending Repair</h3>
+					<br><br>
+					Date From<br>
+					<input type="date" placeholder="Enquiry Date" name="dateFrom" id="dateFrom" required><br><br><br>
+					Date To<br>
+					<input type="date" placeholder="Enquiry Date" name="dateTo" id="dateTo" required><br><br><br>
+					<a href="javascript:void()" onclick="setDate('{{ today }}','{{ today }}')">Today</a>&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="javascript:void()" onclick="setDate('{{ weekAgo }}','{{ today }}')">This Week</a>&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="javascript:void()" onclick="setDate('{{ monthAgo }}','{{ today }}')">This Month</a>
+					<br><br>
+					<input type="submit" value="Get List"><br><br>
+				</form>
+			</section>
+		</section>
+	<footer style="font-family: Lucida Handwriting; color: yellow">
+		<p>Repair Shop Management System 2021. All Rights Reserved</p>
+	</footer>
+	<script type="text/javascript">
+		function setDate(dateFrom, dateTo){
+			document.getElementById("dateFrom").value = dateFrom;
+			document.getElementById("dateTo").value = dateTo;
+		}
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Repair System</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	
+	{% load static %}
+	{% load staticfiles %}
+
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	<link rel="icon" type="image/x-icon" href="{% static 'img/logos.jpg' %}">
+	<style type="text/css">
+		.contentLogin{
+			display: flex;
+			flex-wrap: wrap;
+
+			justify-content: space-around;
+
+			text-align: center;
+			align-self: center;
+			align-items: center;
+
+			position: relative;
+
+			min-width: 100%;
+			max-width: 100%;
+			min-height: 100vh;
+			max-height: 100vh;
+			background: #F4F4F4;
+
+			text-align: center;
+		}
+	</style>
+</head>
+
+<body>
+	<header style="font-family: Lucida Handwriting; color: yellow">
+		<h2>Myrel Hardware and Software Repair Shop</h2>
+	</header>
+
+	<section class="contentLogin" id='content'>
+		<section class="login">
+			<br><br><br>
+			<form method="POST" action="repair/">
+				{% csrf_token %}
+				<input type="text" placeholder="Username" autofocus="autofocus" name="username" value="test" required><br><br>
+				<input type="password" placeholder="Password" name="password" value="test" required><br><br>
+				<input type="submit" value="Login"><br><br>
+			<br><br><br>
+		</section>
+	</section>
+
+	<footer style="font-family: Lucida Handwriting; color: yellow;">
+		<p>Repair Shop Management System 2021. All Rights Reserved</p>
+	</footer>
+</body>
+
+</html>

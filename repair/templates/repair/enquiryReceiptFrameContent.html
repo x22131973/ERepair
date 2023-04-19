@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Repair System</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	
+	{% load static %}
+	{% load staticfiles %}
+
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/receipt.css' %}">
+
+	<link rel="icon" type="image/x-icon" href="{% static 'img/logos.jpg' %}">
+</head>
+
+<body>
+	<div class="content" style="background: white;">
+		{% for i in customerDetails%}
+		<section class="table">
+			<section class="tableHeader">
+				<figure>
+					&nbsp;
+				</figure>
+				<section style="flex: 3; font-family: Lucida Handwriting; color: yellow">
+					<br>
+					<h1 style="font-size: 31px;	">Myrel Hardware and Software Repair Shop</h1>
+					<p>SALES - SERVICE - REPAIR - RENT - BYBACK</p>
+					<br>
+				</section>
+			</section>
+			<section class="tableContactDetails">
+				Brgy. Enclaro, Binalbagan, Negros Occidental
+			</section>
+			<section style="display: flex; text-align: left; flex-wrap: wrap; padding:4px;">
+				<section style="min-width: 55%; max- width: 55%;"><b>R. No. : </b>{{ i.receiptID }}</u></section>
+				<section style="min-width: 45%; max- width: 45%;"><b>Date : </b>{{ i.enquiryDate }}</section>
+				<section style="min-width: 55%; max- width: 55%;"><b>Customer Name : </b>{{ i.customerName }}</section>
+				<section style="min-width: 45%; max- width: 45%;"><b>Contact No : </b>{{ i.contactNo }}</section>
+				<section style="min-width: 100%; max- width: 100%;"><b>Problem : </b>{{ i.problem }}</section>
+				<section style="min-width: 100%; max- width: 100%;"><b>Problem Description : </b>{{ i.problemDescription }}</section>
+				<section style="min-width: 100%; max- width: 100%;"><b>Device Condition : </b>{{ i.deviceCondition }}</section>
+			</section>
+			<section style="display: flex; text-align: left; flex-wrap: wrap; padding:4px;">
+				<section style="min-width: 55%; max- width: 55%;"><b>Estimated Cost : </b>{{ i.estimatedCost }}</section>
+				<section style="min-width: 45%; max- width: 45%;"><b>Advance : </b>{{ i.advance }}</section>								
+			</section>
+			<section class="tableContactDetails" style="text-align: left;">
+				<p><b>Pay Attention:-</b></p>
+				<p>1. Please carry this receipt while carrying the goods.</p>
+				<p>2. Carry the goods within 10 days, otherwise we will not be responsible.</p>
+				<p>3. When giving your equipment for repair, service, keep your data safe, we will not be responsible if the data is deleted.</p>
+				<p>4. If there is any other problem in your device after repairing, then we will not be responsible for it.</p>
+			</section>
+			<section style="display: flex; text-align: center; flex-wrap: wrap; padding-bottom:0px; padding-top:50px; justify-content: flex-end;">
+				<section style="min-width: 55%; max- width: 55%;"><b>Customer Signature</b></section>
+				<section style="min-width: 45%; max- width: 45%;"><b>Myrel Hardware and Software Repair Shop</b></section>
+			</section>
+		</section>
+		{% endfor %}
+	</div>
+</body>
+</html>
